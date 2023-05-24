@@ -85,7 +85,4 @@ public class EmployeeController {
         return ResponseEntity.ok(allEmployee);
     }
   
-    /*
-      I am from test1 commit. I am testing conflict.(This is from test2).
-     */
 }
