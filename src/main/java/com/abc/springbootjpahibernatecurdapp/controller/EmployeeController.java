@@ -4,6 +4,7 @@ import com.abc.springbootjpahibernatecurdapp.entity.Employee;
 import com.abc.springbootjpahibernatecurdapp.exception.ResourceNotFoundException;
 import com.abc.springbootjpahibernatecurdapp.repo.EmployeeRepository;
 import jakarta.validation.Valid;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -74,6 +75,13 @@ public class EmployeeController {
     public ResponseEntity<List<Employee>> getEmployeesByFirstName(@RequestParam("first_name") String firstName) {
         List<Employee> allEmployee = employeeRepository.findByFirstName(firstName);
 
+        return ResponseEntity.ok(allEmployee);
+    }
+
+    //get all employee by last name using native sql query
+    @GetMapping("/getByLastName")
+    public ResponseEntity<List<Employee>> getEmployeeByLastName(@RequestParam("last_name") String lastName) {
+        List<Employee> allEmployee = employeeRepository.findByLastNameUsingNativeSQL(lastName);
         return ResponseEntity.ok(allEmployee);
     }
 }
