@@ -84,5 +84,9 @@ public class EmployeeController {
         List<Employee> allEmployee = employeeRepository.findByLastNameUsingNativeSQL(lastName);
         return ResponseEntity.ok(allEmployee);
     }
+
+    public void print(){
+        System.out.println("This is for testing purpose..");
+    }
   
 }
