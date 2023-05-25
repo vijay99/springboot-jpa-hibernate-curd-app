@@ -21,14 +21,14 @@ public class EmployeeController {
     private EmployeeRepository employeeRepository;
 
     @GetMapping("/employees")
-    public List<Employee> getAllEmployees(){
+    public List<Employee> getAllEmployees() {
         return employeeRepository.findAll();
     }
 
     @GetMapping("/employee/{id}")
     public Employee getEmployeeById(@PathVariable(value = "id") Long employeeId) throws ResourceNotFoundException {
 
-        Employee employee=employeeRepository.findById(employeeId).orElseThrow(() -> new ResourceNotFoundException("Employee not found of this id:"+employeeId));
+        Employee employee = employeeRepository.findById(employeeId).orElseThrow(() -> new ResourceNotFoundException("Employee not found of this id:" + employeeId));
         return employee;
     }
 
@@ -85,10 +85,10 @@ public class EmployeeController {
         return ResponseEntity.ok(allEmployee);
     }
 
-    public void print(){
+    public void print() {
         System.out.println("This is for testing purpose..");
         System.out.println("This is from branch1 again");
         System.out.println("I am adding from branch2");
     }
-  
+
 }
