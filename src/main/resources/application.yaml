@@ -12,3 +12,6 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update   # Hibernate ddl auto (create, create-drop, validate, update)
+server:
+  servlet:
+    context-path: /api/v1
